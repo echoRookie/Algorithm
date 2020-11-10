@@ -1,4 +1,4 @@
-public class LongestUnivaluePath {
+﻿public class LongestUnivaluePath {
     int max = 0;
     public int longestUnivaluePath(TreeNode root) {
         if(root == null) return 0;
@@ -17,6 +17,7 @@ public class LongestUnivaluePath {
         preorder(node.right);
     }
     // dfs查找相同的最大深度
+
     public int maxDeep(TreeNode node, int val){
         if(node == null || node.val != val)
             return 0;
