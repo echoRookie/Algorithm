@@ -34,6 +34,7 @@ public class BuildTree {
             this.val = val;
             this.left = left;
             this.right = right;
+ 
 
         }
     }
