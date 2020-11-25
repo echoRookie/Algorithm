@@ -1,7 +1,7 @@
 public class Rotate1 {
     public static void main(String[] args) {
         int[][] res = new int[][]{{5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}};
-        rotate(res);
+        rotate1(res);
         for (int i = 0; i < res.length; i++) {
             String str = "";
             for (int j = 0; j < res[0].length; j++) {
@@ -72,6 +72,29 @@ public class Rotate1 {
             up++;
             down--;
             left++;
+            right--;
+        }
+    }
+    public static void rotate1(int[][] matrix) {
+        int rows = matrix.length;
+        if (rows <= 1) {
+            return;
+        }
+        //计算需要翻转的层数,按层去翻转
+        int floor = (rows + 1) / 2;
+        // 设置需要翻转的方向边界
+        int left = 0;
+        int right = rows - 1;
+        //按每层去翻转
+        for (int i = floor; i > 0; i--) {
+            for(int j = 0; j<right - left; j++){
+                int temp = matrix[left][left + j];
+                matrix[left][left + j] = matrix[right - j][left];
+                matrix[right - j][left] = matrix[right][right -j];
+                matrix[right][right -j] = matrix[left + j][right];
+                matrix[left + j][right] = temp;
+            }
+            left ++;
             right--;
         }
     }
