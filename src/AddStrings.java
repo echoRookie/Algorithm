@@ -1,4 +1,7 @@
 public class AddStrings {
+    public static void main(String[] args) {
+        System.out.println(addStrings1("6", "501"));
+    }
     public static String addStrings(String num1, String num2) {
         int aLength = num1.length();
         int bLength = num2.length();
@@ -31,6 +34,22 @@ public class AddStrings {
             stringBuffer.append(nums[maxLength - 1]);
         }
         return stringBuffer.reverse().toString();
+    }
+    public static String addStrings1(String num1, String num2) {
+        int length1 = num1.length() -1;
+        int length2 = num2.length()-1;
+        int carry = 0;
+        StringBuffer stringBuffer = new StringBuffer();
+        while (length1 >= 0 || length2 >= 0 || carry!=0){
+            int x = length1 < 0 ? 0 : num1.charAt(length1) - '0';
+            int y = length2 < 0 ? 0 : num2.charAt(length2) - '0';
+            int sum = x + y + carry;
+            stringBuffer.append(sum %10);
+            carry = sum/10;
+            length1--;
+            length2--;
+        }
+        return  stringBuffer.reverse().toString();
     }
 }
 
