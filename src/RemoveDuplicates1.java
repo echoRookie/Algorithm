@@ -14,7 +14,7 @@ public class RemoveDuplicates1 {
                 j++;
                 nums[j] = nums[i];
                 count = 1;
-            } else (nums[i] == nums[j] && count <= 1) {
+            } else if (nums[i] == nums[j] && count <= 1) {
                 j++;
                 nums[j] = nums[i];
                 count++;
